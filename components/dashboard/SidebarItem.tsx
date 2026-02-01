@@ -1,8 +1,10 @@
 "use client"
 
+
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { IconType } from "react-icons";
+
 
 
 
@@ -16,10 +18,11 @@ interface SidebarItem {
 const SidebarItem = ({ href, icon: Icon, title }: SidebarItem) => {
     const pathname = usePathname();
     const isActive = pathname === href
+  
 
-    return (
-        <div className="flex justify-start items-center space-y-6 p-2 w-full">
-      
+
+    return  (
+        <div className="flex justify-start items-center space-y-6 p-2 w-full" role="button">
                 <Link
                     key={href}
                     href={href}
@@ -35,7 +38,8 @@ const SidebarItem = ({ href, icon: Icon, title }: SidebarItem) => {
                 </Link>
         
         </div>
-    )
+         )
+    
 }
 
 export default SidebarItem
