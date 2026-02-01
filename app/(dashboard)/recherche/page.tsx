@@ -1,13 +1,17 @@
-import Product from "@/components/recherche/Product"
-import Seller from "@/components/recherche/Seller"
+import ProductGrid from "@/components/product/Productgrid"
+import ProductHead from "@/components/product/ProductHead"
+import ProductHeader from "@/components/product/ProductHeader"
+
 
 
 
 const page = () => {
   return (
-    <div className="flex ">
-
-     <Product />
+    <div className="flex flex-col ">
+     <ProductHead />
+     <ProductGrid/>
+     <ProductHeader/>
+      <ProductGrid/>
     </div>
   )
 }

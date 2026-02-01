@@ -4,6 +4,7 @@ import { FaBell, FaUser } from 'react-icons/fa6'
 import Link from 'next/link'
 import Logo from '../Logo'
 import Menu from './Menu'
+import Searchbar from './Searchbar'
 
 
 
@@ -26,12 +27,13 @@ const Navbar = () => {
     
   ]
   return (
-    <header className='h-12 w-full top-0 left-0 border-b flex text-center items-center  sticky'>
+    <header className='h-12 w-full top-0 left-0 border-b flex text-center items-center  sticky z-99 bg-white'>
       <nav className=' flex flex-row items-center w-full justify-between '>
         <div className='p-2'>
               <Logo href='/dashboard'/>
         </div>
         <Menu/>
+        <Searchbar/>
         <div className='md:flex md:flex-row gap-x-12 pr-10 hidden '>
          {
           navItem.map((item, index)=>(

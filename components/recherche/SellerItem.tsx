@@ -48,7 +48,7 @@ const suppliers = [
     verified: true,
   },
   {
-    id: 1,
+    id: 4,
     name: "UNJong International",
     avatar: "https://github.com/maxleiter.png",
     country: "France",
@@ -133,11 +133,11 @@ const SellerItem = () => {
 
               {/* Actions */}
               <div className="flex gap-2 pt-2">
-                <Button size="sm" variant="outline">
+                <Button size="sm" variant="outline" className="text-xs">
                   <Store size={14} className="mr-1" />
                   Voir le stand
                 </Button>
-                <Button size="sm">
+                <Button size="sm" className="text-xs">
                   <MessageCircle size={14} className="mr-1" />
                   Contacter
                 </Button>
