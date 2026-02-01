@@ -1,11 +1,16 @@
-import { withPayload } from '@payloadcms/next/withPayload'
 
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  // Your Next.js config here
-  
-}
+import type { NextConfig } from "next";
 
-// Make sure you wrap your `nextConfig`
-// with the `withPayload` plugin
-export default withPayload(nextConfig) 
+const nextConfig: NextConfig = {
+  /* config options here */
+  images:{
+    remotePatterns:[
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+      },
+    ]
+  }
+};
+
+export default nextConfig;
