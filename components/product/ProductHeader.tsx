@@ -1,7 +1,11 @@
 
-
+"use client"
 
 import React from "react";
+import { FiExternalLink } from "react-icons/fi";
+import { Button } from "../ui/button";
+import { useExtend } from "@/hooks/useExtend";
+import { MdOutlineCloseFullscreen } from "react-icons/md";
 
 // Reusable category card
 interface Category {
@@ -54,11 +58,32 @@ export const ShopByCategory: React.FC = () => {
     },
   ];
 
+  const { close, open, isCollapsed } = useExtend()
+
   return (
     <section className="w-full p-6">
-      <h2 className="text-lg font-bold">Achetez par catégorie</h2>
-      <p className="text-gray-500 mb-6 text-sm">Nous allons vous aider à trouver quelque chose</p>
 
+
+      <div className="flex items-center justify-between">
+        <div className="flex flex-col">
+          <h2 className="text-lg font-bold">Achetez par catégorie</h2>
+          <p className="text-gray-500 mb-6 text-sm">Nous allons vous aider à trouver quelque chose</p>
+        </div>
+
+        {
+          isCollapsed ? (
+            <Button className="cursor-pointer" variant={'outline'} size={'icon'} onClick={() => open()}>
+              <MdOutlineCloseFullscreen />
+            </Button>
+          ) : (
+            <Button className="cursor-pointer" variant={'outline'} size={'icon'} onClick={() => close()}>
+              <FiExternalLink />
+            </Button>
+          )
+        }
+
+
+      </div>
 
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-8">
         {categories.map((category) => (
@@ -70,7 +95,7 @@ export const ShopByCategory: React.FC = () => {
 };
 
 // Preview usage
-export default function  ProductHeader() {
+export default function ProductHeader() {
   return (
     <div className=" bg-white flex items-start justify-center">
       <ShopByCategory />

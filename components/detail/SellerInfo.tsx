@@ -1,8 +1,12 @@
+"use client"
+
+import { useRouter } from "next/navigation"
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar"
 import { Button } from "../ui/button"
 import { FaStar } from "react-icons/fa6"
 
 const SellerInfo = () => {
+  const router= useRouter()
   return (
     <div className="border rounded-lg p-6 space-y-4 grid grid-cols-1 md:grid-cols-2">
      <div className="">
@@ -36,7 +40,7 @@ const SellerInfo = () => {
         <p>✔ Réponse moyenne : &lt; 24h</p>
       </div>
 
-      <Button variant="outline">
+      <Button variant="outline" onClick={()=>router.push('/store')}>
         Contacter le vendeur
       </Button>
 

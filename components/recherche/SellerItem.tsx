@@ -1,3 +1,5 @@
+"use client"
+
 import { FaStar } from "react-icons/fa6"
 import { MessageCircle, Store } from "lucide-react"
 import Image from "next/image"
@@ -7,6 +9,7 @@ import { Card, CardContent } from "../ui/card"
 import { Button } from "../ui/button"
 import { Badge } from "../ui/badge"
 import { ScrollArea } from "../ui/scroll-area"
+import { useRouter } from "next/navigation"
 
 /* ---------------- MOCK DATA ---------------- */
 
@@ -64,9 +67,11 @@ const suppliers = [
 /* ---------------- COMPONENT ---------------- */
 
 const SellerItem = () => {
+
+  const router = useRouter()
   return (
      <ScrollArea className="flex-1 px-2 hide-scrollbar h-60 mb-8">
-    <div className="grid gap-3 pb-4">
+    <div className="grid gap-3 pb-4" role="button" onClick={()=>router.push('/store')}>
       {suppliers.map((supplier) => (
         <Card key={supplier.id} className="p-0">
           <CardContent className="p-3 flex gap-3">
