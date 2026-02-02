@@ -1,9 +1,13 @@
+"use client"
+
 import { FaStar } from "react-icons/fa6"
 import { Badge } from "../ui/badge"
 import { Button } from "../ui/button"
 import { MessageCircle, MapPin, Store } from "lucide-react"
+import { useRouter } from "next/navigation"
 
 const StoreHeader = () => {
+  const router = useRouter()
   return (
     <div className="rounded-xl overflow-hidden border bg-white">
 
@@ -79,7 +83,7 @@ const StoreHeader = () => {
 
         {/* Actions */}
         <div className="flex md:flex-col gap-2 md:items-end">
-          <Button>
+          <Button onClick={()=>router.push('/chat')}>
             <MessageCircle size={16} className="mr-1" />
             Contacter
           </Button>

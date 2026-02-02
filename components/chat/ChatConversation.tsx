@@ -1,6 +1,11 @@
+"use client"
+
 import MessageBubble from "./MessageBubble"
 import ChatInput from "./ChatInput"
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar"
+import { Button } from "../ui/button"
+import { Store } from "lucide-react"
+import { useRouter } from "next/navigation"
 
 const messages = [
     {
@@ -23,28 +28,24 @@ const messages = [
     },
 ]
 
-const chats = [
-    {
-        id: 1,
-        name: "UNJong International",
-        lastMessage: "Le MOQ est de 100 unités.",
-        avatar: "https://github.com/maxleiter.png",
-        online: true,
-    },
 
-]
 
 
 const ChatConversation = () => {
+
+    const router= useRouter()
     return (
         <div className="col-span-3 flex flex-col">
 
             {/* Header */}
 
-
             <div className="flex items-center justify-end border-b">
 
                 <div className="flex items-center gap-2 flex-row">
+                    <Button size="sm" variant="outline" className="text-xs" onClick={()=>router.push('/store')}>
+                        <Store size={14} className="mr-1" />
+                        Voir le stand
+                    </Button>
                     <div className=" p-4 font-medium">
                         UNJong International
                     </div>
