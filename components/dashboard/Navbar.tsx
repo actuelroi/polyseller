@@ -5,6 +5,7 @@ import Link from 'next/link'
 import Logo from '../Logo'
 import Menu from './Menu'
 import Searchbar from './Searchbar'
+import { BsCart4 } from 'react-icons/bs'
 
 
 
@@ -12,6 +13,10 @@ import Searchbar from './Searchbar'
 const Navbar = () => {
 
   const navItem=[
+    {
+      icon: BsCart4,
+      href:'/cart',
+    },
     {
       icon: IoMdHelpCircle,
       href:'/help',

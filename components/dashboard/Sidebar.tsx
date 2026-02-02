@@ -47,7 +47,7 @@ const sidebarNavItem = [
   },
   {
     title: "Historique d'achats",
-    href: 'Analytic',
+    href: 'historique',
     icon: GoGraph
   },
   {
@@ -57,7 +57,7 @@ const sidebarNavItem = [
   },
   {
     title: 'Transaction',
-    href: '/Transactions',
+    href: '/transactions',
     icon: IoMoon
   },
   {

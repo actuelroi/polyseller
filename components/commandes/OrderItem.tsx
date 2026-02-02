@@ -2,17 +2,19 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Trash } from "lucide-react"
 import Action from "./Action"
 import { Button } from "../ui/button"
+import OrderProgress from "./OrderProgress"
 
 const OrderItem = ({ order }: any) => {
     return (
-        <div className="border rounded-lg p-4 flex flex-col md:flex-row gap-4">
+        <div className="flex flex-col  p-4 border rounded-lg">
+        <div className=" p-4 flex flex-col md:flex-row gap-4">
 
             {/* Product image */}
             <img
                 src={order.product.image}
                 alt={order.product.name}
                 className="h-24 w-24 object-cover rounded"
-            />
+                />
 
             {/* Info */}
             <div className="flex-1 space-y-2">
@@ -80,9 +82,13 @@ const OrderItem = ({ order }: any) => {
                         <Trash size={16} />
                     </button>
                 </div>
+                
             </div>
+            
 
         </div>
+         <OrderProgress currentStatus={order.status} />
+                </div>
     )
 }
 

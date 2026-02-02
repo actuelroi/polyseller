@@ -18,6 +18,7 @@ const orders = [
     deliveryDate: "20 Jan 2024",
     quantity: 300,
     unitPrice: 4,
+    status: 2,
     seller: {
       name: "UNJong International",
       avatar: "https://github.com/maxleiter.png",
@@ -40,6 +41,7 @@ const orders = [
     deliveryDate: "25 Jan 2024",
     quantity: 200,
     unitPrice: 5.8,
+    status:1,
     seller: {
       name: "Beijing Trade Co.",
       avatar: "https://github.com/shadcn.png",
@@ -52,6 +54,8 @@ const orders = [
     },
   },
 ]
+
+
 
 const page = () => {
   const totalItems = orders.reduce((acc, o) => acc + o.quantity, 0)
