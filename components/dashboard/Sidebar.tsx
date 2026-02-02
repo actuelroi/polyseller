@@ -16,6 +16,7 @@ import Link from "next/link";
 import { useSidebar } from "@/hooks/useSidebar";
 import Hint from "../Hint";
 import { usePathname } from "next/navigation";
+import { useMediaQuery } from "@/hooks/useMediaQuery";
 
 
 const sidebarNavItem = [
@@ -82,7 +83,8 @@ type Props = {
 };
 
 const Sidebar = ({ className }: Props) => {
-   const pathname = usePathname();
+  const pathname = usePathname();
+  const isMobile = useMediaQuery('(max-width: 1024px)')
 
   const { isCollapsed, open, close } = useSidebar()
 
@@ -114,7 +116,7 @@ const Sidebar = ({ className }: Props) => {
                     asChild
                   >
                     <Link href={item.href}>
-                       <item.icon  className='mr-0 size-5' />
+                      <item.icon className='mr-0 size-5' />
                     </Link>
                   </Button>
                 </Hint>
@@ -133,12 +135,16 @@ const Sidebar = ({ className }: Props) => {
                 <span>Dashboard </span>
               </Button>
             </Link>
+            {
+              !isMobile && (
+                <Hint label={label} side='right' asChild >
+                  <Button onClick={() => close()} variant='ghost' size='icon' >
+                    <ArrowRightFromLine className='size-4' />
+                  </Button>
+                </Hint>
+              )
+            }
 
-            <Hint label={label} side='right' asChild>
-              <Button onClick={() => close()} variant='ghost' size='icon'>
-                <ArrowRightFromLine className='size-4' />
-              </Button>
-            </Hint>
           </div>
           {
             sidebarNavItem.map((item, index) => (

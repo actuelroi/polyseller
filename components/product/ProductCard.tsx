@@ -1,18 +1,23 @@
+"use client"
+
 import Image from "next/image"
 import { FaStar } from "react-icons/fa6"
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar"
 import { Badge } from "../ui/badge"
+import { useRouter } from "next/navigation"
+
 
 type ProductCardProps = {
   product: any
 }
 
 const ProductCard = ({ product }: ProductCardProps) => {
+  const router = useRouter()
   return (
-    <div className="border rounded-lg overflow-hidden bg-white hover:shadow-md transition cursor-pointer">
+    <div className="border rounded-lg overflow-hidden bg-white hover:shadow-md transition cursor-pointer" onClick={()=>router.push('/detail')}>
       
       {/* Product Image */}
-      <div className="relative h-30 w-full bg-gray-100">
+      <div className="relative h-40 w-full bg-gray-100">
         <Image
           src={product.image}
           alt={product.name}
